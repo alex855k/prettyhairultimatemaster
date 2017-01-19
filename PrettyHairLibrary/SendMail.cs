@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrettyHairLibrary
 {
@@ -24,7 +20,7 @@ namespace PrettyHairLibrary
         public void Send(OrderRepository m, EventArgs e)
         {
             // Email STMP not implemented
-            EmailsSent++; 
+            this.EmailsSent++; 
         }
     }
 }

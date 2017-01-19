@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using PrettyHairLibrary;
 
 namespace PrettyHairLibrary
 {
-    public class OrderRepository
+
+    public interface IOrderRepository
+    { 
+        void Add(Order o);
+        
+    }
+    public class OrderRepository : IOrderRepository
     {
         public event TickHandler Tick;
         public EventArgs e = null;
@@ -13,22 +20,17 @@ namespace PrettyHairLibrary
         public void Add(Order o)
         {
             _orders.Add(o);
-            this.ReceivedOrderNotification();
-            if (!o.CheckQuantity()) NotifyWarehouseManagerAboutAmount(); 
+            this.ReceivedOrderNotification(o);
+            if (!o.CheckQuantity()) NotifPurchaserAboutAmount(o); 
         }
 
-
-        private void ReceivedOrderNotification()
+        private void ReceivedOrderNotification(Order o)
         {
-            // send info instead
-            // if diff from null
             Tick?.Invoke(this, e);
         }
 
-        private void NotifyWarehouseManagerAboutAmount()
+        private void NotifPurchaserAboutAmount(Order o)
         {
-            // send info instead
-            // if diff from null
             Tick?.Invoke(this, e);
         }
 
@@ -56,6 +58,15 @@ namespace PrettyHairLibrary
         {
             return FindOrder(orderid);
         }
-
+        //Local version, make DB query instead
+        public List<Order> GetUnproccessedOrders()
+        {
+            List<Order> orders = new List<Order>();
+            foreach (Order ord in _orders)
+            {
+               if ((ord.ProcessStatus == picked.NotProcessed)) orders.Add(ord);
+            }
+            return orders;
+        }
     }
 }

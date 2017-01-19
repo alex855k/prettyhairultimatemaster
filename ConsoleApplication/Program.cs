@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PrettyHairLibrary;
 using ConsoleApplication;
 
@@ -56,8 +52,11 @@ namespace CLI
             int.TryParse(Console.ReadLine(), out option);
             switch (option)
             {
-                case 3:
+                case 0:
                     isRunning = false;
+                    break;
+                case 3:
+                    ViewOrders();
                     break;
                 case 1:
                     Console.Clear();
@@ -71,6 +70,11 @@ namespace CLI
                     Console.WriteLine("Wrong input try again.");
                     break;
             }
+        }
+
+        private void ViewOrders()
+        {
+            or.GetUnproccessedOrders();
         }
 
         private ProductType SelectProduct()

@@ -1,10 +1,5 @@
 ﻿using PrettyHairLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace ConsoleApplication
 {
@@ -19,9 +14,10 @@ namespace ConsoleApplication
 
         public void PrintMenu()
         {
+            Console.WriteLine("0. Close");
             Console.WriteLine("1. View all product types");
             Console.WriteLine("2. Update product.");
-            Console.WriteLine("3. Close");
+            Console.WriteLine("4. Show daily orders");
         }
 
         public void ViewProductTypes()
