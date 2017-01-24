@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace PrettyHairLibrary
 {
-
     public enum picked
     {
         Processed,
@@ -11,16 +10,16 @@ namespace PrettyHairLibrary
         BeingProcessed,
         Canceled
     }
-    public class Order : EventArgs
+    public class Order
     {
         // Unique key for the product, and then the amount of this product in the order
         Dictionary<ProductType, int> orderlines = new Dictionary<ProductType, int>();
-        private string deliveryDate;
-        private string orderDate;
+        private DateTime deliveryDate;
+        private DateTime orderDate;
         public picked ProcessStatus { get; set; }
         public int OrderId { get; private set; } 
         
-        public Order(int orderid, string dd,string od, Dictionary<ProductType, int> ol)
+        public Order(int orderid, DateTime dd, DateTime od, Dictionary<ProductType, int> ol)
         {
             orderlines = ol;
             deliveryDate = dd;
