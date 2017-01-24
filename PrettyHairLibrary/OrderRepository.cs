@@ -8,8 +8,11 @@ namespace PrettyHairLibrary
     public interface IOrderRepository
     { 
         void Add(Order o);
-        
+        void GetUnprocessedOrders();
+        void GetOrders();
+        void LoadOrders();
     }
+
     public class OrderRepository : IOrderRepository
     {
         public event TickHandler Tick;
@@ -67,6 +70,21 @@ namespace PrettyHairLibrary
                if ((ord.ProcessStatus == picked.NotProcessed)) orders.Add(ord);
             }
             return orders;
+        }
+
+        public void GetUnprocessedOrders()
+        {
+                
+        }
+
+        public void GetOrders()
+        {
+            
+        }
+
+        public void LoadOrders()
+        {
+            
         }
     }
 }

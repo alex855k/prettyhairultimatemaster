@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace View.ViewModel
 {
-    class ProductTypeViewModel
+    public class ProductTypeViewModel
     {
     }
 }

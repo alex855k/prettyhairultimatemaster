@@ -8,7 +8,5 @@ namespace View.ViewModel
 {
     public class OrderListViewModel
     {
-        
-
     }
 }

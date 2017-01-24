@@ -1,11 +1,15 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace PrettyHairLibrary
 {
-    public class ProductType
+    public class ProductType : INotifyPropertyChanged
     {
         private double price;
         private int amount;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ProductType(int i, string d, double p, int a)
         {
             ID = i;

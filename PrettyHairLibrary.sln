@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyHairTests", "PrettyHairTests\PrettyHairTests.csproj", "{21891469-0CB5-49BC-9F90-7BEB75BA2316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{C8218F01-C9DA-44D3-881E-7DB2CC2F4448}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{4FB6BBCE-8EB6-46CE-9C4E-30228A90BCA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{21891469-0CB5-49BC-9F90-7BEB75BA2316}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21891469-0CB5-49BC-9F90-7BEB75BA2316}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21891469-0CB5-49BC-9F90-7BEB75BA2316}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8218F01-C9DA-44D3-881E-7DB2CC2F4448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8218F01-C9DA-44D3-881E-7DB2CC2F4448}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8218F01-C9DA-44D3-881E-7DB2CC2F4448}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8218F01-C9DA-44D3-881E-7DB2CC2F4448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB6BBCE-8EB6-46CE-9C4E-30228A90BCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB6BBCE-8EB6-46CE-9C4E-30228A90BCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB6BBCE-8EB6-46CE-9C4E-30228A90BCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB6BBCE-8EB6-46CE-9C4E-30228A90BCA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

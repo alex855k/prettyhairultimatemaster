@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace PrettyHairLibrary
 {
@@ -10,12 +11,15 @@ namespace PrettyHairLibrary
         BeingProcessed,
         Canceled
     }
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         // Unique key for the product, and then the amount of this product in the order
         Dictionary<ProductType, int> orderlines = new Dictionary<ProductType, int>();
         private DateTime deliveryDate;
         private DateTime orderDate;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public picked ProcessStatus { get; set; }
         public int OrderId { get; private set; } 
         
