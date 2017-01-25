@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using PrettyHairLibrary;
+using PrettyHairLibrary.Database;
 
 namespace PrettyHairLibrary
 {
 
-    public interface IOrderRepository
-    { 
-        void Add(Order o);
-        void GetUnprocessedOrders();
-        void GetOrders();
-        void LoadOrders();
-    }
-
-    public class OrderRepository : IOrderRepository
+    public class OrderRepository
     {
+        private static OrderRepository instance;
+        public ProductTypeRepository pRep = ProductTypeRepository.Instance;
         public event TickHandler Tick;
         public EventArgs e = null;
         public delegate void TickHandler(OrderRepository m, EventArgs e);
         private List<Order> _orders = new List<Order>();
+
+
+        private OrderRepository() {
+            this.LoadEverything();
+        }
+
+        public static OrderRepository Instance{
+            get {
+                if (instance == null) {
+                    instance = new OrderRepository();
+                }
+                return instance;
+                }
+            }
 
         public void Add(Order o)
         {
@@ -82,9 +91,28 @@ namespace PrettyHairLibrary
             
         }
 
-        public void LoadOrders()
+        public void LoadEverything()
         {
+
+            // Creating local instance of productTypes
+            pRep.Add(new ProductType(1,"Shampoo", 300, 10));
+            pRep.Add(new ProductType(2,"Gel", 20, 20));
+            pRep.Add(new ProductType(3,"L'oreal because you're trash", 40, 5));
+            pRep.Add(new ProductType(4,"Rufies", 10, 4));
+            pRep.Add(new ProductType(5,"Brush", 100, 6));
+
+            // Creating local instances but should pull from database instead
+            Dictionary<ProductType, int> orderLine1 = new Dictionary<ProductType, int>();
+            orderLine1.Add(pRep.GetProduct(1), 4);
+            orderLine1.Add(pRep.GetProduct(4), 2);
             
+            Dictionary<ProductType, int> orderLine2 = new Dictionary<ProductType , int>();
+            orderLine2.Add(pRep.GetProduct(5), 2);
+            orderLine2.Add(pRep.GetProduct(2), 5);
+
+            _orders.Add(new Order(DateTime.Parse("17-10-2011"), DateTime.Parse("23-10-2011"), orderLine1));
+            _orders.Add(new Order(DateTime.Parse("10-10-2011"), DateTime.Parse("15-10-2011"), orderLine2));
+
         }
     }
 }

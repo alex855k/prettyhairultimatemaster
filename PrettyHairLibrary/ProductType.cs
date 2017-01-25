@@ -10,12 +10,12 @@ namespace PrettyHairLibrary
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ProductType(int i, string d, double p, int a)
+        public ProductType(int id, string descr, double price, int amount)
         {
-            ID = i;
-            Description = d;
-            Price = p;
-            Amount = a;
+            ID = id;
+            Description = descr;
+            Price = price;
+            Amount = amount;
         }
 
         public int ID { get; set; }

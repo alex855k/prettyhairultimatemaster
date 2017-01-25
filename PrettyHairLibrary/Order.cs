@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrettyHairLibrary.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -17,18 +18,29 @@ namespace PrettyHairLibrary
         Dictionary<ProductType, int> orderlines = new Dictionary<ProductType, int>();
         private DateTime deliveryDate;
         private DateTime orderDate;
+        private EntityKeyGenerator EKR;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public picked ProcessStatus { get; set; }
         public int OrderId { get; private set; } 
         
-        public Order(int orderid, DateTime dd, DateTime od, Dictionary<ProductType, int> ol)
+        public Order(int orderid, DateTime dd, DateTime od, Dictionary<ProductType, int> ol, picked status)
         {
+            
             orderlines = ol;
             deliveryDate = dd;
             orderDate = od;
             this.OrderId = orderid;
+            this.ProcessStatus = status;
+        }
+
+        public Order(DateTime dd, DateTime od, Dictionary<ProductType, int> ol)
+        {
+            orderlines = ol;
+            deliveryDate = dd;
+            orderDate = od;
+            this.OrderId = EKR.NextKey;
             this.ProcessStatus = picked.NotProcessed;
         }
         public Order()

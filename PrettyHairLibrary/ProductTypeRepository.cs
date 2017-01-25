@@ -7,7 +7,19 @@ namespace PrettyHairLibrary
 
     public class ProductTypeRepository
     {
+        public static ProductTypeRepository instance;
+
         Dictionary<int, ProductType> _productTypes = new Dictionary<int, ProductType>();
+
+        private ProductTypeRepository() { }
+
+        public static ProductTypeRepository Instance {
+            get {
+               if (instance == null) instance = new ProductTypeRepository();
+               return instance;
+            }
+            
+        }
 
         public void Delete(int key)
         {
@@ -46,7 +58,6 @@ namespace PrettyHairLibrary
         {
             _productTypes[key].Description = newDescription;
         }
-
 
         public string ViewAllProducts()
         {
