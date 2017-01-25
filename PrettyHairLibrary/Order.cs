@@ -18,10 +18,22 @@ namespace PrettyHairLibrary
         Dictionary<ProductType, int> orderlines = new Dictionary<ProductType, int>();
         private DateTime deliveryDate;
         private DateTime orderDate;
-        private EntityKeyGenerator EKR;
+        private EntityKeyGenerator EKR = EntityKeyGenerator.Instance;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public string DeliveryDate {
+            get {
+                return deliveryDate.ToString();
+                }
+        }
 
+        public string OrderDate
+        {
+            get
+            {
+                return orderDate.ToString();
+            }
+        }
         public picked ProcessStatus { get; set; }
         public int OrderId { get; private set; } 
         
@@ -40,8 +52,8 @@ namespace PrettyHairLibrary
             orderlines = ol;
             deliveryDate = dd;
             orderDate = od;
-            this.OrderId = EKR.NextKey;
-            this.ProcessStatus = picked.NotProcessed;
+            OrderId = EKR.NextKey;
+            ProcessStatus = picked.NotProcessed;
         }
         public Order()
         {
@@ -71,5 +83,15 @@ namespace PrettyHairLibrary
             string orderString = "order [deliverydate="+ this.deliveryDate +", orderdate="+this.orderDate+"]";
             return orderString;
         }
+         /*public event PropertyChangedEventHandler PropertyChanged;
+
+            private void RaisePropertyChanged(string property)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(property));
+                }
+            }
+            */
     }
 }

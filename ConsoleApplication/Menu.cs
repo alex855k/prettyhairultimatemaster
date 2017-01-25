@@ -9,7 +9,7 @@ namespace ConsoleApplication
         private ProductTypeRepository pr;
 
         public Menu(ProductTypeRepository prodRep) {
-            pr = prodRep;
+            pr = ProductTypeRepository.Instance;
         }
 
         public void PrintMenu()

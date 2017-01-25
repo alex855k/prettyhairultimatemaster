@@ -24,5 +24,6 @@ namespace GUI.Views
         {
             InitializeComponent();
         }
+
     }
 }

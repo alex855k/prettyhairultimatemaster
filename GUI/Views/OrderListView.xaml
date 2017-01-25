@@ -7,9 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListBox x:Name="orderListBox">
-            
-            
-        </ListBox>    
+        <ListBox x:Name="Order" ItemsSource = "{Binding Path = AllOrders}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Tag="{Binding OrderId}" Header="Delete" />
+                            </ContextMenu>
+                        </StackPanel.ContextMenu>
+                        <TextBlock Text="{Binding DeliveryDate}" />
+                        <TextBlock Text="{Binding OrderDate}" />
+                        <TextBlock Padding="5,0,5,0"
+                                Text="{Binding OrderId}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
     </Grid>
+    
 </UserControl>

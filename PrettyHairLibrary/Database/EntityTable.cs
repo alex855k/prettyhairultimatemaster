@@ -34,7 +34,7 @@ namespace PrettyHairLibrary.Database
         }
 
         internal virtual int? AddEntity(object value) {
-            int? key = keyGenerator.NextKey;
+            int key = keyGenerator.NextKey;
             entities[key] = value;
 
             EntityAddedEventArgs args = new EntityAddedEventArgs();

@@ -4,7 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
+        xmlns:views = "clr-namespace:GUI.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid/>
+    <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="295" Margin="10,10,0,0" VerticalAlignment="Top" Width="494">
+        <TabItem Header="CheckInventory">
+            <Grid>
+                <views:ProductTypeView x:Name = "ProductTypeListViewControl"  Loaded ="ProductTypeListViewControl_Loaded" />
+            </Grid>
+        </TabItem>
+        <TabItem Header="OrderList">
+            <Grid>
+                <views:OrderListView x:Name = "OrderListViewControl"  Loaded ="OrderListViewControl_Loaded" />
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

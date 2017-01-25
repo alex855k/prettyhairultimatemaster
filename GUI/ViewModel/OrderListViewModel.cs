@@ -8,19 +8,6 @@ namespace View.ViewModel
     {
         public OrderRepository ORep = OrderRepository.Instance;
 
-        public ObservableCollection<Order> UnprocessedOrders
-        {
-            get
-            {
-                ObservableCollection<Order> ord = new ObservableCollection<Order>();
-                foreach (Order o in ORep.GetUnproccessedOrders())
-                {
-                    ord.Add(o);
-                }
-                return ord;
-            }
-        }
-
         public ObservableCollection<Order> AllOrders
         {
             get;
@@ -29,7 +16,13 @@ namespace View.ViewModel
 
         public void Loaded()
         {
+            ObservableCollection<Order> ord = new ObservableCollection<Order>();
 
+            foreach (Order o in ORep.GetUnproccessedOrders())
+            {
+                ord.Add(o);
+            }
+            AllOrders = ord;
         }
     }
 }

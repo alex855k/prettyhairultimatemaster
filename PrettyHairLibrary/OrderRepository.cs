@@ -110,8 +110,8 @@ namespace PrettyHairLibrary
             orderLine2.Add(pRep.GetProduct(5), 2);
             orderLine2.Add(pRep.GetProduct(2), 5);
 
-            _orders.Add(new Order(DateTime.Parse("17-10-2011"), DateTime.Parse("23-10-2011"), orderLine1));
-            _orders.Add(new Order(DateTime.Parse("10-10-2011"), DateTime.Parse("15-10-2011"), orderLine2));
+            _orders.Add(new Order(DateTime.Now, DateTime.Now, orderLine1));
+            _orders.Add(new Order(DateTime.Now, DateTime.Now, orderLine2));
 
         }
     }

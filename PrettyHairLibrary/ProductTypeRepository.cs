@@ -7,7 +7,7 @@ namespace PrettyHairLibrary
 
     public class ProductTypeRepository
     {
-        public static ProductTypeRepository instance;
+        public static volatile ProductTypeRepository instance;
 
         Dictionary<int, ProductType> _productTypes = new Dictionary<int, ProductType>();
 
@@ -68,6 +68,11 @@ namespace PrettyHairLibrary
             }
             
             return sb.ToString();
+        }
+
+        public Dictionary<int, ProductType> GetAllProductTypes()
+        {
+            return _productTypes;
         }
 
         public void UpdateProduct(int id, string description, double price, int amount)

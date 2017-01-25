@@ -8,8 +8,8 @@ namespace CLI
     class Program
     {
         private bool isRunning;
-        private ProductTypeRepository pr = new ProductTypeRepository();
-        private OrderRepository or = new OrderRepository();
+        private ProductTypeRepository pr = ProductTypeRepository.Instance;
+        private OrderRepository or = OrderRepository.Instance;
         private Menu m; 
 
         static void Main(string[] args)

@@ -7,6 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <ListBox x:Name="ProductTypeListBox" ItemsSource = "{Binding Path = ProductTypeList}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ID}" />
+                        <TextBlock Text="{Binding Description}" />
+                        <TextBlock Text="{Binding Price}" />
+                        <TextBlock Padding="5,0,5,0"
+                                Text="{Binding Amount}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
     </Grid>
 </UserControl>

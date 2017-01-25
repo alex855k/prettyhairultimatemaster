@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace PrettyHairLibrary.Database
 {
-    [Serializable]
     public class EntityKeyGenerator
     {
 
         private static volatile EntityKeyGenerator instance;
+        private Random r = null;
 
-        private EntityKeyGenerator() { }
+        private EntityKeyGenerator() {
+            r= new Random();
+        }
         public static EntityKeyGenerator Instance {
             get {
                 if(instance == null)
@@ -22,16 +24,16 @@ namespace PrettyHairLibrary.Database
                 return instance;
             }
         }
-        private int nextKey;
 
-        public virtual int NextKey
+       public virtual int NextKey
         {
-            get
-            {
-                Random r = new Random();
-                int randomNb = r.Next(1, 1000);
+            get { 
+                int randomNb = r.Next(100, 9999);
                 DateTime d = DateTime.Now;
-                return randomNb + d.Year + d.Day + d.Hour + d.Minute + d.Second + d.Millisecond;
+                string timestamp = "" + d.Day.ToString() +
+                    d.Minute.ToString() + d.Second.ToString() + randomNb.ToString();
+                randomNb = Convert.ToInt32(timestamp); 
+                return randomNb;
             }
         }
 

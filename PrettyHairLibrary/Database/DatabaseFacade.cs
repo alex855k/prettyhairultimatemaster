@@ -22,18 +22,18 @@ namespace PrettyHairLibrary.Database
         }
         //instance variables
         private EntityTable engines;
-        private AbstractEntityPersistenceStrategy persistenceStrategy;
+        //private AbstractEntityPersistenceStrategy persistenceStrategy;
         public event EventHandler EngineAdded;
         public event EventHandler EnginesRestored;
 
         //private constructor
         private DatabaseFacade() {
             engines = new EntityTable(EntityKeyGenerator.Instance);
-            engines.EntityTableItemAdded += HandleEngineAdded;
-            engines.EntityTableRestored += HandleEngineRestored;
+           // engines.EntityTableItemAdded += HandleEngineAdded;
+            //engines.EntityTableRestored += HandleEngineRestored;
 
             // Set strategy
-            persistenceStrategy = new EntitySerializationStrategy();
+            //persistenceStrategy = new EntitySerializationStrategy();
 
         }
     }
