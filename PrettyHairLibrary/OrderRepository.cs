@@ -9,6 +9,7 @@ namespace PrettyHairLibrary
     public class OrderRepository
     {
         private static OrderRepository instance;
+        private static DatabaseFacade dbFacade = DatabaseFacade.Instance;
         public ProductTypeRepository pRep = ProductTypeRepository.Instance;
         public event TickHandler Tick;
         public EventArgs e = null;
@@ -81,14 +82,14 @@ namespace PrettyHairLibrary
             return orders;
         }
 
-        public void GetUnprocessedOrders()
-        {
-                
+        public void Delete() {
+
         }
 
-        public void GetOrders()
+
+        public void Save(Order o)
         {
-            
+            dbFacade.SaveOrder(o);
         }
 
         public void LoadEverything()

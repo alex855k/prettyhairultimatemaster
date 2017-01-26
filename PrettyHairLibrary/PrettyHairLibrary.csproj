@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="Database\DatabaseFacade.cs" />
     <Compile Include="Database\EntityKeyGenerator.cs" />
     <Compile Include="Database\EntitySerializationStrategy.cs" />
     <Compile Include="Database\EntityTable.cs" />
+    <Compile Include="Database\FetchDataTable.cs" />
     <Compile Include="SendMail.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderRepository.cs" />

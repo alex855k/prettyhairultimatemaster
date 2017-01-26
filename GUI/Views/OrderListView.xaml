@@ -13,7 +13,7 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Tag="{Binding OrderId}" Header="Delete" />
+                                <MenuItem Command="Delete" Tag="{Binding OrderId}" Header="Delete" />
                             </ContextMenu>
                         </StackPanel.ContextMenu>
                         <TextBlock Text="{Binding DeliveryDate}" />

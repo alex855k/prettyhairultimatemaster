@@ -14,8 +14,7 @@
                         <TextBlock Text="{Binding ID}" />
                         <TextBlock Text="{Binding Description}" />
                         <TextBlock Text="{Binding Price}" />
-                        <TextBlock Padding="5,0,5,0"
-                                Text="{Binding Amount}" />
+                        <TextBlock Padding="5,0,5,0" Text="{Binding Amount}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
