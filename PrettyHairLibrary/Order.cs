@@ -12,6 +12,7 @@ namespace PrettyHairLibrary
         BeingProcessed,
         Canceled
     }
+
     public class Order : INotifyPropertyChanged
     {
         // Unique key for the product, and then the amount of this product in the order
@@ -20,21 +21,35 @@ namespace PrettyHairLibrary
         private DateTime orderDate;
         private EntityKeyGenerator EKR = EntityKeyGenerator.Instance;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public string DeliveryDate {
             get {
-                return deliveryDate.ToString();
-                }
+                return deliveryDate.Year + "-" + deliveryDate.Month + "-" + deliveryDate.Day;
+            }
+            set
+            {
+                DateTime.TryParse(value, out deliveryDate);
+            }
+            
         }
 
         public string OrderDate
         {
             get
             {
-                return orderDate.ToString();
+                return orderDate.Year + "-"+ orderDate.Month + "-" + orderDate.Day;
+            }
+            set
+            {
+                DateTime.TryParse(value, out orderDate);
             }
         }
-        public picked ProcessStatus { get; set; }
+
+
+        public picked ProcessStatus {
+            get;
+            set;
+        }
         public int OrderId { get; private set; } 
         
         public Order(int orderid, DateTime dd, DateTime od, Dictionary<ProductType, int> ol, picked status)
@@ -83,15 +98,12 @@ namespace PrettyHairLibrary
             string orderString = "order [deliverydate="+ this.deliveryDate +", orderdate="+this.orderDate+"]";
             return orderString;
         }
-         /*public event PropertyChangedEventHandler PropertyChanged;
-
-            private void RaisePropertyChanged(string property)
-            {
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs(property));
-                }
-            }
-            */
+        
+        
+        private void RaisePropertyChanged(string property)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
+       
     }
 }

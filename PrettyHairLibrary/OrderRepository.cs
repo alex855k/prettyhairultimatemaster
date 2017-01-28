@@ -87,7 +87,7 @@ namespace PrettyHairLibrary
         }
 
 
-        public void Save(Order o)
+        private void Save(Order o)
         {
             dbFacade.SaveOrder(o);
         }

@@ -8,11 +8,8 @@ namespace PrettyHairLibrary
     public class ProductTypeRepository
     {
         public static volatile ProductTypeRepository instance;
-
         Dictionary<int, ProductType> _productTypes = new Dictionary<int, ProductType>();
-
         private ProductTypeRepository() { }
-
         public static ProductTypeRepository Instance {
             get {
                if (instance == null) instance = new ProductTypeRepository();

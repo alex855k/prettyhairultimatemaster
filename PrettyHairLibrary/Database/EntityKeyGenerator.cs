@@ -31,8 +31,8 @@ namespace PrettyHairLibrary.Database
                 int randomNb = r.Next(100, 9999);
                 DateTime d = DateTime.Now;
                 string timestamp = d.Day.ToString() +
-                    d.Minute.ToString() + d.Second.ToString();
-                randomNb = Convert.ToInt32(timestamp + randomNb.ToString()); 
+                    d.Minute.ToString() + randomNb.ToString();
+                randomNb = Convert.ToInt32(timestamp); 
                 return randomNb;
             }
         }
